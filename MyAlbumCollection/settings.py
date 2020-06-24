@@ -25,8 +25,8 @@ SECRET_KEY = 'o*u3%#2%+_%@ck9_@te=xou1q&^dkyo9kdwzu364tm3-@#*ff8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split()
+# ALLOWED_HOSTS = []
 
 
 
