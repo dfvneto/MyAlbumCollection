@@ -10,3 +10,5 @@ album/*
 # cache files
 MyAlbumCollection/__pycache__/*
 AlbumCollection/__pycache__/*
+album-venv/*
+.vscode/*

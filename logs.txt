@@ -1,0 +1,107 @@
+Retrieving logs...
+============= i-04d10a3c2673c01cf ==============
+----------------------------------------
+/var/log/eb-engine.log
+----------------------------------------
+
+2020/06/24 02:31:28.486333 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-522575227777, object: /resources/environments/e-gqr42nymhm/_runtime/versions/manifest_1592965664892
+2020/06/24 02:31:28.501315 [INFO] Download successful148bytes downloaded
+2020/06/24 02:31:28.501323 [INFO] Trying to read and parse version manifest...
+2020/06/24 02:31:28.501434 [INFO] Downloading: bucket: elasticbeanstalk-us-east-1-522575227777, object: /resources/environments/e-gqr42nymhm/_runtime/_versions/MyAlbumCollection/app-1aaf-200623_232734
+2020/06/24 02:31:28.515585 [INFO] Download successful11799bytes downloaded
+2020/06/24 02:31:28.515850 [INFO] Executing instruction: ElectLeader
+2020/06/24 02:31:28.515857 [INFO] Running leader election for instance i-04d10a3c2673c01cf...
+2020/06/24 02:31:28.515862 [INFO] Calling the cfn-elect-cmd-leader to elect the command leader.
+2020/06/24 02:31:28.515879 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-elect-cmd-leader --stack arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 --command-name ElasticBeanstalkCommand-AWSEBAutoScalingGroup --invocation-id 246f9a10-7e59-4331-a4c3-7fa0ab3f23c4 --listener-id i-04d10a3c2673c01cf --region us-east-1
+2020/06/24 02:31:28.852543 [INFO] Instance is Leader.
+2020/06/24 02:31:28.852586 [INFO] Executing instruction: stopSqsd
+2020/06/24 02:31:28.852593 [INFO] This is a web server environment instance, skip stop sqsd daemon ...
+2020/06/24 02:31:28.852597 [INFO] Executing instruction: PreBuildEbExtension
+2020/06/24 02:31:28.852602 [INFO] Starting executing the config set Infra-EmbeddedPreBuild.
+2020/06/24 02:31:28.852621 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPreBuild
+2020/06/24 02:31:29.207329 [INFO] Finished executing the config set Infra-EmbeddedPreBuild.
+
+2020/06/24 02:31:29.207360 [INFO] Executing instruction: StageApplication
+2020/06/24 02:31:29.208871 [INFO] extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/
+2020/06/24 02:31:29.208893 [INFO] Running command /bin/sh -c /usr/bin/unzip -q -o /opt/elasticbeanstalk/deployment/app_source_bundle -d /var/app/staging/
+2020/06/24 02:31:29.214022 [INFO] finished extracting /opt/elasticbeanstalk/deployment/app_source_bundle to /var/app/staging/ successfully
+2020/06/24 02:31:29.214649 [INFO] Executing instruction: RunPreBuildHooks
+2020/06/24 02:31:29.214666 [INFO] The dir .platform/hooks/prebuild/ does not exist in the application. Skipping this step...
+2020/06/24 02:31:29.214675 [INFO] Executing instruction: InstallDependency
+2020/06/24 02:31:29.214680 [INFO] checking dependencies file
+2020/06/24 02:31:29.214686 [INFO] Installing dependencies with requirements.txt
+2020/06/24 02:31:29.214699 [INFO] Running command /bin/sh -c python3 -m pipenv install -r requirements.txt --skip-lock
+2020/06/24 02:32:01.060212 [INFO] Installing dependencies from Pipfile…
+To activate this project's virtualenv, run pipenv shell.
+Alternatively, run a command inside the virtualenv with pipenv run.
+
+2020/06/24 02:32:01.060236 [ERROR] Creating a Pipfile for this project…
+Requirements file provided! Importing into Pipfile…
+
+2020/06/24 02:32:01.060245 [INFO] Executing instruction: check Procfile
+2020/06/24 02:32:01.060298 [INFO] detected Procfile in application source bundle ...
+2020/06/24 02:32:01.060304 [INFO] Executing instruction: configure X-Ray
+2020/06/24 02:32:01.060308 [INFO] X-Ray is not enabled.
+2020/06/24 02:32:01.060312 [INFO] Executing instruction: configure proxy Nginx
+2020/06/24 02:32:01.060448 [INFO] No plugin in cfn metadata.
+2020/06/24 02:32:01.067958 [INFO] Executing instruction: configure healthd specific proxy conf
+2020/06/24 02:32:01.070696 [INFO] copy healthd related conf to proxy staging dir ... 
+2020/06/24 02:32:01.070713 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/healthd_logformat.conf to /var/proxy/staging/nginx/conf.d/healthd_logformat.conf
+2020/06/24 02:32:01.072139 [INFO] Copying file /opt/elasticbeanstalk/config/private/healthd/healthd.conf to /var/proxy/staging/nginx/conf.d/elasticbeanstalk/healthd.conf
+2020/06/24 02:32:01.073443 [INFO] Executing instruction: configure log streaming
+2020/06/24 02:32:01.073451 [INFO] log streaming is not enabled
+2020/06/24 02:32:01.073454 [INFO] disable log stream
+2020/06/24 02:32:01.073473 [INFO] Running command /bin/sh -c systemctl show -p PartOf amazon-cloudwatch-agent.service
+2020/06/24 02:32:01.081098 [INFO] Running command /bin/sh -c systemctl stop amazon-cloudwatch-agent.service
+2020/06/24 02:32:01.086134 [INFO] Executing instruction: GetToggleForceRotate
+2020/06/24 02:32:01.086149 [INFO] Checking if logs need forced rotation
+2020/06/24 02:32:01.086167 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 -r AWSEBAutoScalingGroup --region us-east-1
+2020/06/24 02:32:01.427277 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/06/24 02:32:01.768704 [INFO] Copying file /opt/elasticbeanstalk/config/private/rsyslog.conf to /etc/rsyslog.d/web.conf
+2020/06/24 02:32:01.769953 [INFO] Running command /bin/sh -c systemctl restart rsyslog.service
+2020/06/24 02:32:01.801141 [INFO] Executing instruction: PostBuildEbExtension
+2020/06/24 02:32:01.801157 [INFO] No plugin in cfn metadata.
+2020/06/24 02:32:01.801165 [INFO] Starting executing the config set Infra-EmbeddedPostBuild.
+2020/06/24 02:32:01.801185 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-init -s arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 -r AWSEBAutoScalingGroup --region us-east-1 --configsets Infra-EmbeddedPostBuild
+2020/06/24 02:32:02.153038 [INFO] Finished executing the config set Infra-EmbeddedPostBuild.
+
+2020/06/24 02:32:02.153064 [INFO] Executing instruction: CleanEbExtensions
+2020/06/24 02:32:02.153217 [INFO] Cleaned ebextensions subdirectories from app staging directory.
+2020/06/24 02:32:02.153224 [INFO] Executing instruction: RunPreDeployHooks
+2020/06/24 02:32:02.153233 [INFO] The dir .platform/hooks/predeploy/ does not exist in the application. Skipping this step...
+2020/06/24 02:32:02.153237 [INFO] Executing instruction: stop X-Ray
+2020/06/24 02:32:02.153241 [INFO] stop X-Ray ...
+2020/06/24 02:32:02.153259 [INFO] Running command /bin/sh -c systemctl show -p PartOf xray.service
+2020/06/24 02:32:02.160173 [WARN] stopProcess Warning: process xray is not registered 
+2020/06/24 02:32:02.160195 [INFO] Running command /bin/sh -c systemctl stop xray.service
+2020/06/24 02:32:02.167564 [INFO] Executing instruction: stop proxy
+2020/06/24 02:32:02.167587 [INFO] Running command /bin/sh -c systemctl show -p PartOf nginx.service
+2020/06/24 02:32:02.175263 [WARN] stopProcess Warning: process nginx is not registered 
+2020/06/24 02:32:02.175285 [INFO] Running command /bin/sh -c systemctl stop nginx.service
+2020/06/24 02:32:02.179992 [INFO] Executing instruction: FlipApplication
+2020/06/24 02:32:02.180004 [INFO] Fetching environment variables...
+2020/06/24 02:32:02.180010 [INFO] No plugin in cfn metadata.
+2020/06/24 02:32:02.180086 [ERROR] There is no proc command in proc file. Aborting the deployment.
+2020/06/24 02:32:02.180110 [ERROR] An error occurred during execution of command [app-deploy] - [FlipApplication]. Stop running the command. Error: [EBError] There is no proc command in proc file. Aborting the deployment. 
+
+2020/06/24 02:32:02.180114 [INFO] Executing cleanup logic
+2020/06/24 02:32:02.180185 [INFO] CommandService Response: {"status":"FAILURE","api_version":"1.0","results":[{"status":"FAILURE","msg":"Engine execution has encountered an error.","returncode":1,"events":[]}]}
+
+2020/06/24 02:32:02.180318 [INFO] Platform Engine finished execution on command: app-deploy
+
+2020/06/24 02:33:26.126646 [INFO] Starting...
+2020/06/24 02:33:26.126688 [INFO] Starting EBPlatform-PlatformEngine
+2020/06/24 02:33:26.126747 [INFO] no eb envtier info file found, skip loading env tier info.
+2020/06/24 02:33:26.126811 [INFO] Engine received EB command cfn-hup-exec
+
+2020/06/24 02:33:26.216665 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 -r AWSEBAutoScalingGroup --region us-east-1
+2020/06/24 02:33:26.562008 [INFO] Running command /bin/sh -c /opt/aws/bin/cfn-get-metadata -s arn:aws:cloudformation:us-east-1:522575227777:stack/awseb-e-gqr42nymhm-stack/49cee480-b5c2-11ea-93ae-0e05d1a3c102 -r AWSEBBeanstalkMetadata --region us-east-1
+2020/06/24 02:33:26.842044 [INFO] checking whether command tail-log is applicable to this instance...
+2020/06/24 02:33:26.842062 [INFO] this command is applicable to the instance, thus instance should execute command
+2020/06/24 02:33:26.842066 [INFO] Engine command: (tail-log)
+
+2020/06/24 02:33:26.842114 [INFO] Executing instruction: GetTailLogs
+2020/06/24 02:33:26.842119 [INFO] Tail Logs...
+2020/06/24 02:33:26.842396 [INFO] Running command /bin/sh -c tail -n 100 /var/log/eb-engine.log
+
+
