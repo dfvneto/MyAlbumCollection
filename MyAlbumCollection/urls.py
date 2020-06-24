@@ -21,3 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('AlbumCollection.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+
+# it is necessary to add url for static files inside docker
