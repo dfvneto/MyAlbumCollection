@@ -10,4 +10,4 @@ EXPOSE 8000
 
 ENV NAME album
 
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD gunicorn -b :8000 MyAlbumCollection.wsgi
