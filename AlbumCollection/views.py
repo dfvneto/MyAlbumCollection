@@ -56,7 +56,7 @@ class AlbumDetail(APIView):
 
 # Listing and adding tracks
 # To add a new track it is necessary to create album first.
-# The request waits for the id of the track's album
+# The request waits for the id of the track's album in the album field
 class TrackList(APIView):
     def get(self, request, fomart=None):
         tracks = Track.objects.all()
