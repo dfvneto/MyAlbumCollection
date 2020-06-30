@@ -6,9 +6,7 @@ from rest_framework.test import APIClient
 
 
 class AlbumTestCase(APITestCase):
-    client = APIClient()
     def test_post_album(self):
-        # client = APIClient()
         data ={
             "name": "test-album",
             "created": "2020-02-02",
