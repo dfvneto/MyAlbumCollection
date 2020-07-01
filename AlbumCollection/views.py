@@ -1,4 +1,5 @@
 from django.http import Http404
+from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -89,3 +90,12 @@ class TrackDetail(APIView):
         serialized_album = AlbumSerializer(album)
         serialized_track_data['album'] = serialized_album.data['name']
         return Response(serialized_track_data)
+
+
+def index(request):
+    return render(request, 'chat/index.html')
+
+def room(request, room_name):
+    return render(request, 'chat/room.html', {
+        'room_name': room_name
+    })
